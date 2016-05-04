@@ -24,7 +24,7 @@ class DefaultController extends Controller {
 
 // sub function
 	public function infosubmit(){
-		if(isset($_SESSION['useid']))
+		if(isset($_SESSION['submit']) && (time()-$_SESSION['submit'])<60)
 			return array('code' => '8'); /*already submit*/
 		$request = $this->Request();
 		$data = array(
@@ -41,7 +41,7 @@ class DefaultController extends Controller {
 		$keys['useid'] = uniqid();
 		$sql = new DatabaseAPI();
 		if($sql->insertUser($keys)){
-			$_SESSION['useid'] = $keys['useid'];
+			$_SESSION['submit'] = time();
 			return array('code' => '10'); /*submit success*/
 		}
 		return array('code' => '9'); /*submit error*/

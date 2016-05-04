@@ -11,6 +11,7 @@ class DatabaseAPI {
 	 */
 	public function __construct(){
 		$connect = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+		$connect->set_charset('utf8');
 		$this->db = $connect;
 	}
 
