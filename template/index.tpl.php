@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Possession LOUNGE</title>
+    <title>POSSESSION LOUNGE</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="format-detection" content="telephone=no">
     <!--禁用手机号码链接(for iPhone)-->
@@ -92,8 +92,8 @@
                 </ul>
 
                 <div class="clause">
-                    <label><input type="checkbox" name="news" checked></label>
-                    <label><input type="checkbox" name="tnc" checked></label>
+                    <label><span class="checkboxStyle"></span><input type="checkbox" name="news" checked></label>
+                    <label><span class="checkboxStyle"></span><input type="checkbox" name="tnc" checked></label>
                     <a href="javascript:;" class="tncLink"></a>
                 </div>
 
@@ -143,12 +143,10 @@
         }).done(function(data){
 
             if(data.code == "10"){
-                //window.location.href = "/submitsuccess";
-                //alert("提交成功");
-            }else{
-                formErrorTips(data.msg);
-                //alert("很抱歉，提交失败，请刷新之后重新提交");
+                window.location.href = "/submitsuccess";
             }
+
+            formErrorTips(data.msg);
             $(".submitBtn").removeClass("disabled");
         })
     }
@@ -166,10 +164,10 @@
         _tnc = $("input[name='tnc']").is(':checked');
 
         if(_city == "城市 / CITY"){
-            formErrorTips("请选择城市！");
+            formErrorTips("请选择城市 / CITY！");
             $(".submitBtn").removeClass("disabled");
         }else if(_gender == "称谓 / TITLE"){
-            formErrorTips("请选择称谓！");
+            formErrorTips("请选择称谓 / TITLE！");
             $(".submitBtn").removeClass("disabled");
         }else if(_lastName == ""){
             formErrorTips("姓 / Last name 不能为空！");
@@ -213,14 +211,14 @@
         _this.siblings("span").html(_this.val()) 
     })
 
-    // $("input[name='news']").change(function(){
-    //     console.log($(this).is(':checked'));
-    //     if($(this).is(':checked')){
-
-    //     }else{
-
-    //     };
-    // })
+    $("input[type='checkbox']").change(function(){
+        var _this = $(this);
+        if(_this.is(':checked')){
+            _this.siblings(".checkboxStyle").removeClass("notselect");
+        }else{
+            _this.siblings(".checkboxStyle").addClass("notselect");
+        }
+    })
 
 
     var alertInt;

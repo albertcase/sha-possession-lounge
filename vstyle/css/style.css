@@ -84,8 +84,9 @@
     font-size: 1.4rem;
 }
 
-.formli li select option{
-    color: #ccc;
+.formli li input{
+    min-height: 46px;
+    line-height: 46px;
 }
 
 .formli li span{
@@ -146,12 +147,34 @@
     text-align: left;
     float: left;
     display: inline-block;
+    position: relative;
 }
 
 .clause label input{
     margin: 6% 0 0 0;
     display: inline-block;
-    /*opacity: 0;*/
+    opacity: 0;
+}
+
+
+.checkboxStyle{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 0;
+    top: 49%;
+    background: url("/vstyle/img/checkbox.png") left top no-repeat;
+    background-size: 100% auto;
+}
+
+.checkboxStyle.notselect{
+    background: url("/vstyle/img/checkbox.png") left 100% no-repeat;
+    background-size: 100% auto;
+}
+
+
+.clause label:nth-child(2) .checkboxStyle{
+    top: 16%;
 }
 
 .clause label:nth-child(2) input{
