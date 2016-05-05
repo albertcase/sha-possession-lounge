@@ -145,7 +145,7 @@
         }).done(function(data){
 
             if(data.code == "10"){
-                //window.location.href = "/submitsuccess";
+                window.location.href = "/submitsuccess";
                 //alert("提交成功");
             }else{
                 formErrorTips(data.msg);
