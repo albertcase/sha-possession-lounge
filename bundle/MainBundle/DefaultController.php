@@ -32,7 +32,7 @@ class DefaultController extends Controller {
 			array('key' => 'firstname' ,'type'=> 'post' ,'regtype'=> 'text'),
 			array('key' => 'lastname' ,'type'=> 'post' ,'regtype'=> 'text'),
 			array('key' => 'mobile' ,'type'=> 'post' ,'regtype'=> 'telphone'),
-			array('key' => 'email' ,'type'=> 'post' ,'regtype'=> 'email'),
+			array('key' => 'email' ,'type'=> 'post' ,'regtype'=> 'text'),
 			array('key' => 'city' ,'type'=> 'post' ,'regtype'=> 'text'),
 			array('key' => 'getmsg' ,'type'=> 'post' ,'regtype'=> 'number'),
 		);
