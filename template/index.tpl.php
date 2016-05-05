@@ -47,8 +47,15 @@
     </div>
 </div>
 
+
+
+
 <div id="dreambox">
     <div class="section">
+        <div class="success">
+            <img src="/vstyle/img/successBg.jpg" width="100%" />
+        </div>
+
         <a href="javascript:;" class="logo">
             <img src="/vstyle/img/logo.png" width="100%" />
         </a>
@@ -143,10 +150,12 @@
         }).done(function(data){
 
             if(data.code == "10"){
-                window.location.href = "/submitsuccess";
+                $(".success").show();
+                //window.location.href = "/submitsuccess";
+            }else{
+                formErrorTips(data.msg);
             }
-
-            formErrorTips(data.msg);
+            
             $(".submitBtn").removeClass("disabled");
         })
     }
