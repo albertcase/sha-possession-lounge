@@ -57,7 +57,7 @@
             <div class="con">
                 <ul class="formli">
                     <li class="select">
-                        <label for="city">
+                            <span class="placeholder">城市 / CITY</span>
                             <select name="city">
                                 <option>城市 / CITY</option>
                                 <option>上海</option>
@@ -68,16 +68,14 @@
                                 <option>青岛</option>
                                 <option>天津</option>
                             </select>
-                        </label>
                     </li>
                     <li class="select">
-                        <label for="gender">
+                            <span class="placeholder">称谓 / TITLE</span>
                             <select name="gender">
                                 <option>称谓 / TITLE</option>
                                 <option>女士</option>
                                 <option>先生</option>
                             </select>
-                        </label>
                     </li>
                     <li>
                         <input type="text" placeholder="姓 / Last name" name="lastName">
@@ -145,7 +143,7 @@
         }).done(function(data){
 
             if(data.code == "10"){
-                window.location.href = "/submitsuccess";
+                //window.location.href = "/submitsuccess";
                 //alert("提交成功");
             }else{
                 formErrorTips(data.msg);
@@ -202,6 +200,17 @@
             $(this).addClass("disabled");
             orderForm();
         }
+    })
+
+
+    $("select").on("change", function(){
+        var _this = $(this);
+        if(_this.val() == "城市 / CITY" || _this.val() == "称谓 / TITLE"){
+            _this.siblings("span").addClass("placeholder");
+        }else{
+            _this.siblings("span").removeClass("placeholder");
+        }
+        _this.siblings("span").html(_this.val()) 
     })
 
     // $("input[name='news']").change(function(){
