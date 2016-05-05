@@ -126,29 +126,29 @@
         return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value);
     }
 
-    var _city,_gender,_lastName,_firstName,_tel,_email,_news = 1;
+    var _city,_gender,_lastName,_firstName,_tel,_email,_news = true,_tnc;
 
     function formInterface(city,gender,lname,fname,tel,email,news){
         $.ajax({
             type: "POST",
-            url: "/api/submit",
+            url: "/datasubmit",
             data: {
                 "city": city,
-                "gender": gender,
+                "title": gender,
                 "lastname": lname,
                 "firstname": fname,
-                "tel": tel,
+                "mobile": tel,
                 "email": email,
-                "news": news
+                "getmsg": Number(news)
             },
             dataType:"json"
         }).done(function(data){
 
-            if(data.code == 1){
-                window.location.href = "/submitsuccess";
+            if(data.code == "10"){
+                //window.location.href = "/submitsuccess";
                 //alert("提交成功");
             }else{
-                formErrorTips("很抱歉，提交失败，请刷新之后重新提交！");
+                formErrorTips(data.msg);
                 //alert("很抱歉，提交失败，请刷新之后重新提交");
             }
             $(".submitBtn").removeClass("disabled");
@@ -165,6 +165,7 @@
         _tel = $("input[name='tel']").val();
         _email = $("input[name='email']").val();
         _news = $("input[name='news']").is(':checked');
+        _tnc = $("input[name='tnc']").is(':checked');
 
         if(_city == "城市 / CITY"){
             formErrorTips("请选择城市！");
@@ -183,6 +184,9 @@
             $(".submitBtn").removeClass("disabled");
         }else if(_email!="" && !isEmailNum(_email)){
             formErrorTips("邮箱 / E-mail 有误！");
+            $(".submitBtn").removeClass("disabled");
+        }else if(!_tnc){
+            formErrorTips("请阅读并接受本活动相关条款与细则！");
             $(".submitBtn").removeClass("disabled");
         }else{
 

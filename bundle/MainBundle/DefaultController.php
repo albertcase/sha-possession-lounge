@@ -25,7 +25,7 @@ class DefaultController extends Controller {
 // sub function
 	public function infosubmit(){
 		if(isset($_SESSION['useid']))
-			return array('code' => '8'); /*already submit*/
+			return array('code' => '8', 'msg' => '已经提交过'); /*already submit*/
 		$request = $this->Request();
 		$data = array(
 			array('key' => 'title' ,'type'=> 'post' ,'regtype'=> 'text'),
@@ -37,14 +37,14 @@ class DefaultController extends Controller {
 			array('key' => 'getmsg' ,'type'=> 'post' ,'regtype'=> 'number'),
 		);
 		if(!$keys = $request->comfirmKeys($data))
-			return array('code' => '11'); /*data formate error*/
+			return array('code' => '11', 'msg' => '字段错误'); /*data formate error*/
 		$keys['useid'] = uniqid();
 		$sql = new DatabaseAPI();
 		if($sql->insertUser($keys)){
 			$_SESSION['useid'] = $keys['useid'];
-			return array('code' => '10'); /*submit success*/
+			return array('code' => '10', 'msg' => '提交成功'); /*submit success*/
 		}
-		return array('code' => '9'); /*submit error*/
+		return array('code' => '9', 'msg' => '提交错误'); /*submit error*/
 	}
 
 }
