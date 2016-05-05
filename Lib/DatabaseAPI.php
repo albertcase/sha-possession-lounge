@@ -18,7 +18,7 @@ class DatabaseAPI {
 	public function insertUser($data){
 		$sql = "INSERT INTO `lounge_user` SET `useid` = ?, `title` = ?, `firstname` = ?, `lastname` = ?, `mobile` = ?, `email` = ?, `city` = ?, `getmsg` = ?";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("sssssssi", $data['useid'], $data['title'], $data['firstname'], $data['lastname'], $data['mobile'], $data['email'], $data['city'], $data['getmsg']);
+		$res->bind_param("sssssssi", $data['useid'], $data['title'], $data['firstname'], $data['lastname'], $data['mobile'], $data['email'], $data['city'], intval($data['getmsg']));
 		if($res->execute())
 			return true;
 		return false;
