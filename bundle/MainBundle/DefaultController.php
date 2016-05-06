@@ -40,6 +40,8 @@ class DefaultController extends Controller {
 			return array('code' => '11', 'msg' => '提交字段有错误'); /*data formate error*/
 		$keys['useid'] = uniqid();
 		$sql = new DatabaseAPI();
+		if($sql->changephoneNo($keys['mobile']))
+			return array('code' => '13', 'msg' => '该手机号已经被提交');
 		if($sql->insertUser($keys)){
 			$_SESSION['submit'] = time();
 			return array('code' => '10', 'msg' => '提交成功'); /*submit success*/
