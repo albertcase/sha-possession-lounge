@@ -64,9 +64,9 @@
             <div class="con">
                 <ul class="formli">
                     <li class="select">
-                            <span class="placeholder">城市 / CITY</span>
+                            <span class="placeholder">城市 / City</span>
                             <select name="city">
-                                <option>城市 / CITY</option>
+                                <option>城市 / City</option>
                                 <option>上海</option>
                                 <option>杭州</option>
                                 <option>成都</option>
@@ -77,21 +77,21 @@
                             </select>
                     </li>
                     <li class="select">
-                            <span class="placeholder">称谓 / TITLE</span>
+                            <span class="placeholder">称谓 / Title</span>
                             <select name="gender">
-                                <option>称谓 / TITLE</option>
+                                <option>称谓 / Title</option>
                                 <option>女士</option>
                                 <option>先生</option>
                             </select>
                     </li>
                     <li>
-                        <input type="text" placeholder="姓 / Last name" name="lastName">
+                        <input type="text" placeholder="姓 / Last Name" name="lastName">
                     </li>
                     <li>
-                        <input type="text" placeholder="名 / First name" name="firstName">
+                        <input type="text" placeholder="名 / First Name" name="firstName">
                     </li>
                     <li>
-                        <input type="tel" placeholder="手机号 / MOBILE" name="tel">
+                        <input type="tel" placeholder="手机号 / Mobile" name="tel">
                     </li>
                     <li>
                         <input type="text" placeholder="邮箱 / E-mail（可选）" name="email">
@@ -172,20 +172,20 @@
         _news = $("input[name='news']").is(':checked');
         _tnc = $("input[name='tnc']").is(':checked');
 
-        if(_city == "城市 / CITY"){
-            formErrorTips("请选择城市 / CITY！");
+        if(_city == "城市 / City"){
+            formErrorTips("请选择城市 / City！");
             $(".submitBtn").removeClass("disabled");
-        }else if(_gender == "称谓 / TITLE"){
-            formErrorTips("请选择称谓 / TITLE！");
+        }else if(_gender == "称谓 / Title"){
+            formErrorTips("请选择称谓 / Title！");
             $(".submitBtn").removeClass("disabled");
         }else if(_lastName == ""){
-            formErrorTips("姓 / Last name 不能为空！");
+            formErrorTips("姓 / Last Name 不能为空！");
             $(".submitBtn").removeClass("disabled");
         }else if(_firstName == ""){
-            formErrorTips("名 / First name 不能为空！");
+            formErrorTips("名 / First Name 不能为空！");
             $(".submitBtn").removeClass("disabled");
         }else if(!isPhoneNum(_tel)){
-            formErrorTips("手机号 / MOBILE 有误！");
+            formErrorTips("手机号 / Mobile 有误！");
             $(".submitBtn").removeClass("disabled");
         }else if(_email!="" && !isEmailNum(_email)){
             formErrorTips("邮箱 / E-mail 有误！");
@@ -212,7 +212,7 @@
 
     $("select").on("change", function(){
         var _this = $(this);
-        if(_this.val() == "城市 / CITY" || _this.val() == "称谓 / TITLE"){
+        if(_this.val() == "城市 / City" || _this.val() == "称谓 / Title"){
             _this.siblings("span").addClass("placeholder");
         }else{
             _this.siblings("span").removeClass("placeholder");
