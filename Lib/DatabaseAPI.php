@@ -24,4 +24,16 @@ class DatabaseAPI {
 		return false;
 	}
 
+	public function changephoneNo($mobile){
+		$sql = "SELECT `id` FROM `lounge_user` WHERE `mobile` = ?";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $mobile);
+		$res->execute();
+		$res->bind_result($id);
+		if($res->fetch()){
+			return $id;
+		}
+		return false;
+	}
+
 }
