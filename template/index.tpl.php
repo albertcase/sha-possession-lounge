@@ -16,6 +16,15 @@
     <link rel="stylesheet" type="text/css" href="/vstyle/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/vstyle/css/style.css" />
     <script type="text/javascript" src="/vstyle/js/jquery.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3046733d3dc57c42d977c2ab946f1a0b";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 
 </head>
 <body>
