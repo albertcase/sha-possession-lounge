@@ -262,7 +262,13 @@
     display: none;
 }
 
-
+.activeTime{
+    width: 95%;
+    margin: 0 0 0 5%;
+    padding: 6px 0;
+    float: left;
+    display: inline-block;
+}
 
 
 
